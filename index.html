@@ -3,14 +3,35 @@
 
   <head>
      <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+     <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
   </head>
 
  <body>
+    <a-scene background="color: #ECECEC">
+      <a-sky color="#ECECEC"></a-sky>
+          <a-plane position="0 -0.147 0" rotation="-90 0 0" scale="30 30 30"></a-plane>
+          <a-box hoverable grabbable stretchable draggable dropppable position="1 0 0" color="blue"
+          event-set__enter="_event: mouseenter; color: #8FF7FF"
+          event-set__leave="_event: mouseleave; color: #4CC3D9"></a-box>
 
-  <a-scene>
+      <a-assets>
+        <a-asset-item id="mains" src="./models/mains.glb" position="0 2.079 -14.994" rotation="0 -181 0"  scale="3 3 3"></a-asset-item>
+        <a-asset-item id="escaliers" src="./models/escaliers.glb" position="0 2.010 -25.545"></a-asset-item>
+      </a-assets>
 
-      </a-scene>
+      <a-entity gltf-model="#mains"></a-entity>
+        <a-entity gltf-model="#escaliers"></a-entity>
+
+        <a-camera>
+   <a-cursor></a-cursor>
+ </a-camera>
+
+ <a-entity id="leftHand" hand-controls="hand: left; handModelStyle: lowPoly; color: #ffcccc"></a-entity>
+ <a-entity id="rightHand" hand-controls="hand: right; handModelStyle: lowPoly; color: #ffcccc"></a-entity>
+
+   <a-entity sphere-collider="objects: a-box" super-hands hand-controls="left"></a-entity>
+   <a-entity sphere-collider="objects: a-box" super-hands hand-controls="right"></a-entity>
+
+    </a-scene>
     </body>
  </html>
-
-    
