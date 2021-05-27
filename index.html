@@ -22,6 +22,7 @@
 
       <a-assets>
         <a-asset-item id="escaliers" src="./models/escaliers.glb" position="0 2.010 -25.545"></a-asset-item>
+        <a-asset-item id="mains" src="./models/mains.glb"></a-asset-item>
       </a-assets>
 
         <a-entity gltf-model="#escaliers"></a-entity>
@@ -35,7 +36,7 @@
 
  <a-entity hand-controls="left" super-hands sphere-collider="objects: a-box"></a-entity>
  <a-entity hand-controls="right" super-hands sphere-collider="objects: a-box"></a-entity>
- 
+
  <a-entity id="leftHand" hand-tracking-controls="hand: left;"></a-entity>
  <a-entity id="rightHand" hand-tracking-controls="hand: right;"></a-entity>
 
