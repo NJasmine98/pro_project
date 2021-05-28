@@ -5,6 +5,7 @@
      <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
      <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.1.2/dist/aframe-extras.min.js"></script>
      <script src="https://unpkg.com/super-hands@^3.0.1/dist/super-hands.min.js"></script>
+     <script src="../dist/aframe-physics-system.js"></script>
   </head>
 
  <body>
@@ -24,9 +25,9 @@
       </a-entity>
 
           <a-plane position="0 -0.025 0" rotation="-90 0 0" scale="30 30 30"></a-plane>
-          <a-box  hoverable  hoverable grabbable stretchable draggable dropppable position="1 0.483 0" color="blue"></a-box>
-          <a-box  hoverable  hoverable grabbable stretchable draggable dropppable position="-0.726 0.499 0" color="red"></a-box>
-          <a-box hoverable  hoverable grabbable stretchable draggable dropppable position="-2.561 0.502 0.003" color="green"></a-box>
+          <a-box body="type:dynamic" hoverable hoverable grabbable stretchable draggable dropppable position="1 0.483 0" color="blue"></a-box>
+          <a-box body="type:dynamic" hoverable hoverable grabbable stretchable draggable dropppable position="-0.726 0.499 0" color="red"></a-box>
+          <a-box body="type:dynamic" hoverable hoverable grabbable stretchable draggable dropppable position="-2.561 0.502 0.003" color="green"></a-box>
 
     </a-scene>
     </body>
