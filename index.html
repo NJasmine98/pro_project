@@ -4,60 +4,13 @@
   <head>
      <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
      <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.1.2/dist/aframe-extras.min.js"></script>
-     <script src="https://unpkg.com/super-hands@^3.0.1/dist/super-hands.min.js"></script>
+     <script src="https://unpkg.com/super-hands@3.0.1/dist/super-hands.min.js"></script>
      <script src="https://mixedreality.mozilla.org/ammo.js/builds/ammo.wasm.js"></script>
-     <script src="../dist/aframe-physics-system.js"></script>
-     <script>
-
-     AFRAME.registerComponent("bounce", {
-       init: function() {
-         this.direction = 1;
-         this.position = new THREE.Vector3();
-         this.position.copy(this.el.object3D.position);
-         setTimeout(() => {
-           this.ready = true;
-         }, 3000);
-       },
-       tick: function() {
-        if (!this.ready) return;
-        var position = this.el.object3D.position.y;
-        if (position <= 0) {
-          this.direction = 1;
-        } else if (position >= 5) {
-          this.direction = -1;
-        }
-        this.el.object3D.position.set(this.position.x, position + 0.05 * this.direction, this.position.z);
-      }
-    });
-    AFRAME.registerComponent("changescale", {
-      init: function() {
-        this.direction = 1;
-        setTimeout(() => {
-          this.ready = true;
-        }, 3000);
-      },
-
-      tick: function() {
-        if (!this.ready) return;
-        var scale = this.el.object3D.scale;
-        if (scale.x <= 0.05) {
-          this.direction = 1;
-        } else if (scale.x >= 1) {
-          this.direction = -1;
-        }
-        this.el.object3D.scale.set(
-          scale.x + this.direction * 0.01,
-          scale.y + this.direction * 0.01,
-          scale.z + this.direction * 0.01
-        );
-      }
-    });
-  </script>
   </head>
 
  <body>
 
-    <a-scene  physics="driver: ammo; debug: true; gravity: -9.8; debugDrawMode: 1" background="color: #ECECEC">
+    <a-scene  physics="driver: ammo; debug: true; gravity: -9.8; debugDrawMode: 1"background="color: #ECECEC">
       <a-sky color="#ECECEC"></a-sky>
       <a-assets>
         <a-asset-item id="escaliers" src="./models/escaliers.glb" position="0 2.010 -25.545"></a-asset-item>
@@ -71,10 +24,10 @@
                    <a-entity sphere-collider="objects: a-box" super-hands hand-controls="hand: right"></a-entity>
       </a-entity>
 
-          <a-plane position="0 -0.025 0" rotation="-90 0 0" scale="30 30 30"></a-plane>
-          <a-box shadow ammo-body hoverable hoverable grabbable stretchable draggable dropppable position="1 0.483 0" color="blue"></a-box>
-          <a-box shadow ammo-body hoverable hoverable grabbable stretchable draggable dropppable position="-0.726 0.499 0" color="red"></a-box>
-          <a-box shadow ammo-body hoverable hoverable grabbable stretchable draggable dropppable position="-2.561 0.502 0.003" color="green"></a-box>
+          <a-plane static-body position="0 -0.025 0" rotation="-90 0 0" scale="30 30 30"></a-plane>
+          <a-box dynamic-body hoverable hoverable grabbable stretchable draggable dropppable position="1 0.483 0" color="blue"></a-box>
+          <a-box dynamic-body hoverable hoverable grabbable stretchable draggable dropppable position="-0.726 0.499 0" color="red"></a-box>
+          <a-box dynamic-body hoverable hoverable grabbable stretchable draggable dropppable position="-2.561 0.502 0.003" color="green"></a-box>
 
     </a-scene>
     </body>
