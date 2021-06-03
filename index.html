@@ -7,22 +7,7 @@
      <script src="https://unpkg.com/super-hands@3.0.1/dist/super-hands.min.js"></script>
      <script src="https://mixedreality.mozilla.org/ammo.js/builds/ammo.wasm.js"></script>
       <script src="../build.js"></script>
-      <script>
-        var draggable = document.querySelector('[click-drag]');
-        draggable.addEventListener('dragstart', function(dragInfo) {
-          draggable.pause();
-        });
-        draggable.addEventListener('dragend', function(dragInfo) {
-          var x = dragInfo.detail.velocity.x;
-          var y = dragInfo.detail.velocity.y;
-          var z = dragInfo.detail.velocity.z;
 
-          draggable.play();
-          draggable.body.velocity.set(x, y, z);
-          console.log('drag end', dragInfo.detail.velocity);
-        });
-      </script>
-      
   </head>
 
  <body>
@@ -36,16 +21,30 @@
         <a-entity gltf-model="#escaliers"></a-entity>
 
       <a-entity>
-                   <a-camera></a-camera>
+                   <a-camera look-controls-enabled="false" keyboard-controls="fpsMode: true"></a-camera>
                    <a-entity sphere-collider="objects: a-box" super-hands hand-controls="hand: left"></a-entity>
                    <a-entity sphere-collider="objects: a-box" super-hands hand-controls="hand: right"></a-entity>
       </a-entity>
 
           <a-plane static-body position="0 -0.025 0" rotation="-90 0 0" scale="30 30 30"></a-plane>
-          <a-box dynamic-body="mass: 20" grabbable stretchable draggable position="1 0.483 0" color="blue"></a-box>
-          <a-box dynamic-body="mass: 20" grabbable stretchable draggable position="-0.726 0.499 0" color="red"></a-box>
-          <a-box dynamic-body="mass: 20" grabbable stretchable draggable position="-2.561 0.502 0.003" color="green"></a-box>
+          <a-box dynamic-body="mass: 20" class="grabbable stretchable draggable" position="1 0.483 0" color="blue"></a-box>
+          <a-box dynamic-body="mass: 20" class="grabbable stretchable draggable" position="-0.726 0.499 0" color="red"></a-box>
+          <a-box dynamic-body="mass: 20" class="grabbable stretchable draggable" position="-2.561 0.502 0.003" color="green"></a-box>
+          <script>
+            var draggable = document.querySelector('grabbable stretchable draggable');
+            draggable.addEventListener('dragstart', function(dragInfo) {
+              draggable.pause();
+            });
+            draggable.addEventListener('dragend', function(dragInfo) {
+              var x = dragInfo.detail.velocity.x;
+              var y = dragInfo.detail.velocity.y;
+              var z = dragInfo.detail.velocity.z;
 
+              draggable.play();
+              draggable.body.velocity.set(x, y, z);
+              console.log('drag end', dragInfo.detail.velocity);
+            });
+          </script>
     </a-scene>
     </body>
  </html>
