@@ -10,8 +10,10 @@
  <body>
    <a-scene physics="gravity:-9.8; restitution: 0.7">
      <a-entity progressive-controls position="0 0 5"></a-entity>
+     <a-entity id="leftHand" hand-tracking-controls="hand: left;"></a-entity>
+     <a-entity id="rightHand" hand-tracking-controls="hand: right;"></a-entity>
 
      <a-plane src="#ground" static-body scale="50 50 1" repeat="5 5 1" rotation="-90 0 0"></a-plane>
-     <a-box dynamic-body="linearDamping: 0.1" grabbable stretchable draggable position="1 2.8 0" color="blue"></a-box>
-     <a-box dynamic-body="linearDamping: 0.1" grabbable stretchable draggable position="-0.726 2.8 0" color="red"></a-box>
-     <a-box dynamic-body="linearDamping: 0.1" grabbable stretchable draggable position="-2.561 2.8 0.003" color="green"></a-box>
+     <a-box dynamic-body="linearDamping: 0.1" grabbable stretchable draggable position="1 2.8 3" color="blue"></a-box>
+     <a-box dynamic-body="linearDamping: 0.1" grabbable stretchable draggable position="-0.726 2.8 3" color="red"></a-box>
+     <a-box dynamic-body="linearDamping: 0.1" grabbable stretchable draggable position="-2.561 2.8 3" color="green"></a-box>
