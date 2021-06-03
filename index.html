@@ -1,32 +1,17 @@
-<!DOCTYPE html>
-<html lang="fr">
-
-  <head>
-     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-     <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.1.2/dist/aframe-extras.min.js"></script>
-     <script src="https://unpkg.com/super-hands@3.0.1/dist/super-hands.min.js"></script>
-     <script src="https://mixedreality.mozilla.org/ammo.js/builds/ammo.wasm.js"></script>
-     <script src="http://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.min.js"></script>
-
-  </head>
+<!doctype html>
+ <html>
+ <head>
+   <script src="https://aframe.io/releases/0.7.1/aframe.min.js"></script>
+   <script src="https://unpkg.com/aframe-event-set-component@^4.0.0/dist/aframe-event-set-component.min.js"></script>
+   <script src="https://unpkg.com/super-hands@2.1.0/dist/super-hands.min.js"></script>
+   <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.13.1/dist/aframe-extras.min.js"></script>
+ </head>
 
  <body>
+   <a-scene physics="gravity:-9.8; restitution: 0.7">
+     <a-entity progressive-controls position="0 0 5"></a-entity>
 
-    <a-scene physics="driver: ammo; debug: true; debugDrawMode: 1;">
-      <a-sky color="#ECECEC"></a-sky>
-      <a-assets></a-assets>
-
-      <a-entity>
-                   <a-camera position="0 1.6 5" look-controls wasd-controls></a-camera>
-                   <a-entity sphere-collider="objects: a-box" super-hands hand-controls="hand: left"></a-entity>
-                   <a-entity sphere-collider="objects: a-box" super-hands hand-controls="hand: right"></a-entity>
-      </a-entity>
-
-          <a-plane ammo-body="type: static" ammo-shape="type: box" position="0 -0.025 0" rotation="-90 0 0" scale="30 30 30"></a-plane>
-          <a-box ammo-body="type: dynamic" ammo-shape="type: box" grabbable stretchable draggable position="1 2.8 0" color="blue"></a-box>
-          <a-box ammo-body="type: dynamic" ammo-shape="type: box" grabbable stretchable draggable position="-0.726 2.8 0" depth="1" color="red"></a-box>
-          <a-box ammo-body="type: dynamic" ammo-shape="type: box" grabbable stretchable draggable position="-2.561 2.8 0.003" color="green"></a-box>
-
-    </a-scene>
-    </body>
- </html>
+     <a-plane src="#ground" static-body scale="50 50 1" repeat="5 5 1" rotation="-90 0 0"></a-plane>
+     <a-box dynamic-body="linearDamping: 0.1" grabbable stretchable draggable position="1 2.8 0" color="blue"></a-box>
+     <a-box dynamic-body="linearDamping: 0.1" grabbable stretchable draggable position="-0.726 2.8 0" color="red"></a-box>
+     <a-box dynamic-body="linearDamping: 0.1" grabbable stretchable draggable position="-2.561 2.8 0.003" color="green"></a-box>
