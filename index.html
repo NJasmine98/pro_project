@@ -12,39 +12,21 @@
 
  <body>
 
-    <a-scene physics="driver: ammo; debug: true; debugDrawMode: 1;" background="color: #ECECEC">
+    <a-scene physics="driver: ammo; debug: true; debugDrawMode: 1;">
       <a-sky color="#ECECEC"></a-sky>
-      <a-assets>
-        <a-asset-item id="escaliers" src="./models/escaliers.glb" position="0 2.010 -25.545"></a-asset-item>
-      </a-assets>
-
-        <a-entity gltf-model="#escaliers"></a-entity>
+      <a-assets></a-assets>
 
       <a-entity>
-                   <a-camera></a-camera>
+                   <a-camera position="0 1.6 5" look-controls wasd-controls></a-camera>
                    <a-entity sphere-collider="objects: a-box" super-hands hand-controls="hand: left"></a-entity>
                    <a-entity sphere-collider="objects: a-box" super-hands hand-controls="hand: right"></a-entity>
       </a-entity>
 
-          <a-plane static-body ammo-shape="type: box" position="0 -0.025 0" rotation="-90 0 0" scale="30 30 30"></a-plane>
-          <a-box ammo-body="type: static" ammo-shape="type: box" grabbable stretchable draggable position="1 0.483 0" color="blue"></a-box>
-          <a-box ammo-body="type: static" ammo-shape="type: box" grabbable stretchable draggable position="-0.726 0.499 0" color="red"></a-box>
-          <a-box ammo-body="type: static" ammo-shape="type: box" grabbable stretchable draggable position="-2.561 0.502 0.003" color="green"></a-box>
-          <script>
-            var draggable = document.querySelector('draggable');
-            draggable.addEventListener('dragstart', function(dragInfo) {
-              draggable.pause();
-            });
-            draggable.addEventListener('dragend', function(dragInfo) {
-              var x = dragInfo.detail.velocity.x;
-              var y = dragInfo.detail.velocity.y;
-              var z = dragInfo.detail.velocity.z;
+          <a-plane static-body ammo-shape="type: box" gravity="0 -9.8 0" position="0 -0.025 0" rotation="-90 0 0" scale="30 30 30"></a-plane>
+          <a-box ammo-body="type: static" ammo-shape="type: box" grabbable stretchable draggable position="1 2.8 0" color="blue"></a-box>
+          <a-box ammo-body="type: static" ammo-shape="type: box" grabbable stretchable draggable position="-0.726 2.8 0" color="red"></a-box>
+          <a-box ammo-body="type: static" ammo-shape="type: box" grabbable stretchable draggable position="-2.561 2.8 0.003" color="green"></a-box>
 
-              draggable.play();
-              draggable.body.velocity.set(x, y, z);
-              console.log('drag end', dragInfo.detail.velocity);
-            });
-          </script>
     </a-scene>
     </body>
  </html>
