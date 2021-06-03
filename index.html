@@ -7,6 +7,22 @@
      <script src="https://unpkg.com/super-hands@3.0.1/dist/super-hands.min.js"></script>
      <script src="https://mixedreality.mozilla.org/ammo.js/builds/ammo.wasm.js"></script>
       <script src="../build.js"></script>
+      <script>
+        var draggable = document.querySelector('[click-drag]');
+        draggable.addEventListener('dragstart', function(dragInfo) {
+          draggable.pause();
+        });
+        draggable.addEventListener('dragend', function(dragInfo) {
+          var x = dragInfo.detail.velocity.x;
+          var y = dragInfo.detail.velocity.y;
+          var z = dragInfo.detail.velocity.z;
+
+          draggable.play();
+          draggable.body.velocity.set(x, y, z);
+          console.log('drag end', dragInfo.detail.velocity);
+        });
+      </script>
+      
   </head>
 
  <body>
