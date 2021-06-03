@@ -11,10 +11,8 @@
    <a-scene physics="gravity:-9.8; restitution: 0.7">
      <a-entity progressive-controls position="0 0 5"></a-entity>
 
-     <a-entity>
-                  <a-entity sphere-collider="objects: a-box" super-hands hand-controls="hand: left"></a-entity>
-                  <a-entity sphere-collider="objects: a-box" super-hands hand-controls="hand: right"></a-entity>
-     </a-entity>
+     <a-entity id="leftHand" hand-tracking-controls="hand: left;"></a-entity>
+     <a-entity id="rightHand" hand-tracking-controls="hand: right;"></a-entity>
 
      <a-plane src="#ground" static-body scale="50 50 1" repeat="5 5 1" rotation="-90 0 0"></a-plane>
      <a-box dynamic-body="linearDamping: 0.1" grabbable stretchable draggable position="1 2.8 3" color="blue"></a-box>
