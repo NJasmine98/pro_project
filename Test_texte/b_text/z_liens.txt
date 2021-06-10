@@ -1,2 +1,0 @@
-Plusieurs exemples basiques : 
-https://aframe.io/aframe/examples/
