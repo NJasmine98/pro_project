@@ -1,0 +1,43 @@
+<!doctype html>
+ <html>
+ <head>
+   <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+   <script src="https://unpkg.com/aframe-event-set-component@^4.0.0/dist/aframe-event-set-component.min.js"></script>
+   <script src="https://unpkg.com/super-hands@2.1.0/dist/super-hands.min.js"></script>
+   <script src="https://unpkg.com/aframe-physics-system@1.4.0/dist/aframe-physics-system.min.js"></script>
+  <script>
+        var affiche = false
+        AFRAME.registerComponent("foo", {
+            tick : function () {
+                let box = document.querySelector("a-box")
+                var position = box.getAttribute('position');
+                console.log(position.y)
+                if (position.y < 1 && affiche == false) {
+                    let image = document.querySelector("a-image")
+                    image.setAttribute("visible", !image.getAttribute("visible"))
+                    affiche = true;
+                }
+            }
+        })
+    </script>
+ </head>
+
+ <body>
+   <a-scene physics="gravity:-9.8; restitution: 0.7 debug: true">
+
+     <a-assets>
+         <img id="message_1" src="models/message_1.png"><img>
+         <a-asset-item id="escaliers_1" src="models/escaliers_1.glb"><a-asset-item>
+     </a-assets>
+
+     <a-image src="#message_1" position="-0 3 -3" scale="3 1 1" affiche="false"></a-image>
+     <a-entity gltf-model="#escaliers_1"></a-entity>
+
+     <a-entity progressive-controls position="0 0 5"></a-entity>
+
+     <a-plane  scale="50 50 1" repeat="5 5 1" rotation="-90 0 0" static-body></a-plane>
+     <a-box id="a-box" foo grabbable stretchable draggable dropppable position="-0.726 2.8 3" color="red" dynamic-body="linearDamping: 0.1"></a-box>
+
+   </a-scene>
+   </body>
+ </html>
