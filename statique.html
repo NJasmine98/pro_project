@@ -9,7 +9,7 @@
 
 <a-scene background="color: #000000">
 
-<a-entity id="camera" position="0 1.7 0" camera look-controls wasd-controls></a-entity>
+<a-entity id="camera" position="0 2.5 0" camera look-controls wasd-controls></a-entity>
 
 <a-entity id="sky" geometry="primitive: sphere; radius: 65;"
     material="shader: skyGradient; colorTop: #000000; colorBottom: #FFFFFF; side: back"></a-entity>
@@ -27,7 +27,7 @@
 
 <a-entity id="escaliers_1" position="-0.6 1.2 -15" gltf-model="#glb1"></a-entity>
 <a-entity id="socle" position="-0.7 1.6 -60.2" gltf-model="#glb3"></a-entity>
-<a-text value="Ne fais pas tomber la boule !" position="-1.2 1.5 -0.7" side="front" color="#6361f5"></a-text>
+<a-text value="Ne fais pas tomber la boule !" position="-0.6 1.5 -0.7" scale="0.5 0.5 0.5" side="front" color="#6361f5"></a-text>
 
 <a-assets>
   <a-video id="glitch_1" src="./models/glitch_1.mp4"><a-video>
@@ -51,10 +51,10 @@
 <a-video src="#glitch_3" position="-2 1.5 -2.5"
                            scale="1 0.5 1"></a-video>
 
-<a-image src="#message_1" position="0 2.5 -1.9" scale="3 1 1"></a-image>
-<a-image src="#message_3" position="0 2.5 -2.9" scale="3 1 1"></a-image>
-<a-image src="#message_6" position="0 2.5 -3.9" scale="3 1 1"></a-image>
-<a-image src="#message_8" position="0 2.5 -4.9" scale="3 1 1"></a-image>
+<a-image src="#message_1" position="0 2.5 -1.9" scale="2 0.5 0.5"></a-image>
+<a-image src="#message_3" position="0 2.5 -2.9" scale="2 0.5 0.5"></a-image>
+<a-image src="#message_6" position="0 2.5 -3.9" scale="2 0.5 0.5"></a-image>
+<a-image src="#message_8" position="0 2.5 -4.9" scale="2 0.5 0.5"></a-image>
 
 </a-scene>
 </body>
