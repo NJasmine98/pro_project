@@ -30,10 +30,13 @@
 <a-entity id="escaliers_1" position="-0.6 1.2 1.125" gltf-model="#glb1"></a-entity>
 <a-entity id="escaliers_2" position="-0.6 1.2 -44" gltf-model="#glb2"></a-entity>
 <a-entity id="socle" position="-0.7 1.6 -82" gltf-model="#glb3"></a-entity>
-<a-text value="Ne fais pas tomber la boule" position="-1.2 1.5 13.6" side="front"></a-text>
+<a-text value="Ne fais pas tomber la boule !" position="-1.2 1.5 13.6" side="front"></a-text>
 
 <a-assets>
   <a-video id="glitch_1" src="./models/glitch_1.mp4"><a-video>
+  <a-video id="glitch_2" src="./models/glitch_2.mp4"><a-video>
+  <a-video id="glitch_3" src="./models/glitch_3.mp4"><a-video>
+
   <img id="message_1" src="./models/message_1.png">
   <img id="message_2" src="./models/message_2.png">
   <img id="message_3" src="./models/message_3.png">
@@ -46,6 +49,10 @@
 
 <a-video src="#glitch_1" position="-2 1.5 10"
          scale="1 0.5 1"></a-video>
+<a-video src="#glitch_2" position="2 1.5 0"
+                  scale="1 0.5 1"></a-video>
+<a-video src="#glitch_3" position="-2 1.5 -10"
+                           scale="1 0.5 1"></a-video>
 
 <a-image src="#message_1" position="0 3 8" scale="3 1 1"></a-image>
 <a-image src="#message_2" position="0 3 4" scale="3 1 1"></a-image>
