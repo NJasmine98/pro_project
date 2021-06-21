@@ -8,6 +8,7 @@
     <script src="./skygradient.js"></script>
     <script>
         var interval = 1000;
+        var skylevel = 0;
         AFRAME.registerComponent('rotation-reader', {
             init: function(){
                 this.tick = AFRAME.utils.throttleTick(this.tick, interval, this);
@@ -21,25 +22,29 @@
                 info.setAttribute('value', pos_z);
 
                 var sky = document.querySelector('#sky');
-                switch (pos_z) {
-                    case 1:
-                        sky.setAttribute('material', 'shader: skyGradient; colorTop: silver; colorBottom: gray; side: back');
-                        break;
-                    case 2:
-                        sky.setAttribute('material', 'shader: skyGradient; colorTop: blue; colorBottom: silver; side: back');
-                        break;
-                    case 3:
-                        sky.setAttribute('material', 'shader: skyGradient; colorTop: cyan; colorBottom: blue; side: back');
-                        break;
-                    case 4:
-                        sky.setAttribute('material', 'shader: skyGradient; colorTop: silver; colorBottom: gray; side: back');
-                        break;
-                    case 5:
-                        sky.setAttribute('material', 'shader: skyGradient; colorTop: silver; colorBottom: gray; side: back');
-                        break;
-                    default:
-                        sky.setAttribute('material', 'shader: skyGradient; colorTop: gray; colorBottom: black; side: back');
+                if(skylevel < pos_z) {
+                    skylevel = pos_z;
+                    switch (pos_z) {
+                        case 1:
+                            sky.setAttribute('material', 'shader: skyGradient; colorTop: silver; colorBottom: gray; side: back');
+                            break;
+                        case 2:
+                            sky.setAttribute('material', 'shader: skyGradient; colorTop: blue; colorBottom: silver; side: back');
+                            break;
+                        case 3:
+                            sky.setAttribute('material', 'shader: skyGradient; colorTop: cyan; colorBottom: blue; side: back');
+                            break;
+                        case 4:
+                            sky.setAttribute('material', 'shader: skyGradient; colorTop: yellow; colorBottom: cyan; side: back');
+                            break;
+                        case 5:
+                            sky.setAttribute('material', 'shader: skyGradient; colorTop: orange; colorBottom: yellow; side: back');
+                            break;
+                        default:
+                            sky.setAttribute('material', 'shader: skyGradient; colorTop: orange; colorBottom: yellow; side: back');
+                    }
                 }
+
             },
         });
     </script>
@@ -49,7 +54,7 @@
     <a-scene background="color: #5280A7">
         <!-- skygradient -->
         <a-entity id="sky" geometry="primitive: sphere; radius: 65;"
-            material="shader: skyGradient; colorTop: #89D1FE; colorBottom: #5082A7; side: back">
+            material="shader: skyGradient; colorTop: gray; colorBottom: black; side: back">
         </a-entity>
 
         <!-- player -->

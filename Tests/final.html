@@ -5,20 +5,21 @@
    <script src="https://unpkg.com/aframe-event-set-component@^4.0.0/dist/aframe-event-set-component.min.js"></script>
    <script src="https://unpkg.com/super-hands@2.1.0/dist/super-hands.min.js"></script>
    <script src="https://unpkg.com/aframe-physics-system@1.4.0/dist/aframe-physics-system.min.js"></script>
-  <script>
-        var affiche = false
-        AFRAME.registerComponent("foo", {
-            tick : function () {
-                let box = document.querySelector("a-box")
-                var position = box.getAttribute('position');
-                //console.log(position.y)
-                if (position.y < 1 && affiche == false) {
-                    let image = document.querySelector("a-image")
-                    image.setAttribute("visible", !image.getAttribute("visible"))
-                    affiche = true;
-                }
-            }
-        })
+   <!-- <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.js"></script> -->
+   <script>
+       var affiche = false
+       AFRAME.registerComponent("foo", {
+           tick : function () {
+               let box = document.querySelector("a-box")
+               var position = box.getAttribute('position');
+               console.log(position.y)
+               if (position.y < 1 && affiche == false) {
+                   let image = document.querySelector("a-image")
+                   image.setAttribute("visible", !image.getAttribute("visible"))
+                   affiche = true;
+               }
+           }
+       })
     </script>
  </head>
 

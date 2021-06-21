@@ -26,6 +26,9 @@
 </head>
 
 <body>
+
+    <a-scene cursor="rayOrigin: mouse" background="color: silver">
+
     <a-scene background="color: #5280A7" physics="debug: true">
         <a-assets>
             <img id="message_1" src="assets/message_1.png">
@@ -33,7 +36,7 @@
 
 
         <!-- Dynamic box -->
-        <a-box id="a-box" foo position="-1 4 -3" rotation="0 45 0" color="#4CC3D9" dynamic-body></a-box>
+        <a-box id="a-box" foo grabbable stretchable draggable dropppable position="-1 4 -3" rotation="0 45 0" color="#4CC3D9" dynamic-body></a-box>
 
         <!-- Immovable box -->
         <!-- <a-box position="1 2 -3" rotation="0 45 0" color="#grey" static-body></a-box> -->
