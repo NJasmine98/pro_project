@@ -13,6 +13,8 @@
 * [hands size](https://njasmine98.github.io/pro_project/minet_tests/hands_size.html)
 * [sky gradient](https://njasmine98.github.io/pro_project/minet_tests/skygradient.html)
 * [show message physique](https://njasmine98.github.io/pro_project/Tests/Test_texte/0_physics_base.html)
+* [final](https://njasmine98.github.io/pro_project/Tests/final.html)
+
 
 * [sky change _ rotation](https://njasmine98.github.io/pro_project/minet_tests/6_sky_update_rotation_v2.html)
 * [sky change _ translation](https://njasmine98.github.io/pro_project/minet_tests/6_sky_update_tranlation_v2.html)
